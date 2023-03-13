@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './css/App.css';
+import { Col } from 'antd';
+
+//Components
+import Searcher from './components/Searcher';
+// import PokemonList from './components/PokemonList';
+import PokemonCard from './components/PokemonCard';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <img src="https://static.platzi.com/media/tmp/class-files/github/curso-redux/curso-redux-01-pokeapi/src/statics/logo.svg" alt="logo" />
+      <hr />
+      <Col span={8} offset={8} >
+        <Searcher />
+        <PokemonCard />
+      </Col>
     </div>
   );
 }
