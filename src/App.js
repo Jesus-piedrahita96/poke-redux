@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { actionTypes } from './actions/types';
 import './css/App.css';
 import { Col } from 'antd';
 import useGetApi from './hooks/useGetApi';
@@ -9,10 +11,12 @@ import Searcher from './components/Searcher';
 import PokemonCard from './components/PokemonCard';
 
 
-function App() {
-  const API = 'https://pokeapi.co/api/v2/pokemon?limit=150'
+function App({pokemons, setPokemons}) {
+  const API = 'https://pokeapi.co/api/v2/pokemon?limit=150';
+  const value = useGetApi(API)
+  setPokemons(value)
   const pokemons = useGetApi(API)
-  console.log(pokemons.results);
+  // console.log(pokemons.results);
 
   return (
     <div className="App">
@@ -26,4 +30,12 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  pokemons: state.pokemons
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  setPokemos: (value) => dispatch(actionTypes.setPokemons(value))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
