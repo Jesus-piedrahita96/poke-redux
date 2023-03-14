@@ -3,3 +3,10 @@
   margin-left: calc(50% - 90px);
   object-fit: cover;
 }
+
+.contain-pokemons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-around;
+}

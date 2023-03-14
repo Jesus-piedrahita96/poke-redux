@@ -1,41 +1,30 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { actionTypes } from './actions/types';
-import './css/App.css';
+import { useSelector } from 'react-redux';
 import { Col } from 'antd';
+//Hooks
 import useGetApi from './hooks/useGetApi';
-
 //Components
 import Searcher from './components/Searcher';
-// import PokemonList from './components/PokemonList';
-import PokemonCard from './components/PokemonCard';
+import PokemonsList from './components/PokemonList';
+//Css
+import './css/App.css';
 
 
-function App({pokemons, setPokemons}) {
+function App() {
   const API = 'https://pokeapi.co/api/v2/pokemon?limit=150';
-  const value = useGetApi(API)
-  setPokemons(value)
-  const pokemons = useGetApi(API)
-  // console.log(pokemons.results);
+  useGetApi(API)
+  const pokemons = useSelector(state => state.pokemons)
 
   return (
     <div className="App">
       <img className='title' src="https://static.platzi.com/media/tmp/class-files/github/curso-redux/curso-redux-01-pokeapi/src/statics/logo.svg" alt="logo" />
       <hr />
-      <Col span={8} offset={8} >
+      <Col span={20} offset={2} >
         <Searcher />
-        <PokemonCard />
+        <PokemonsList pokemons={pokemons} />
       </Col>
     </div>
   );
 }
 
-const mapStateToProps = (state) => ({
-  pokemons: state.pokemons
-})
-
-const mapDispatchToProps = (dispatch) => ({
-  setPokemos: (value) => dispatch(actionTypes.setPokemons(value))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

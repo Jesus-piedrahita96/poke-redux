@@ -1,18 +1,17 @@
 import React from 'react';
-// import PokemonCard from './PokemonCard';
+import PokemonCard from './PokemonCard';
+import '../css/App.css'
 
 function PokemonList({pokemons}) {
   return (
     <>
-      {/* {pokemons.map((pokemon, index) => {
-        return <PokemonCard />
-      })} */}
+      <div className='contain-pokemons'>
+        {pokemons.map((pokemon, index) => {
+          return <PokemonCard key={index} pokemon={pokemon} />
+        })}
+      </div>
     </>
   );
 }
-
-// PokemonList.defaultProps = {
-//   pokemons: Array(5).fill(''),
-// }
 
 export default PokemonList
