@@ -9,7 +9,7 @@ function PokemonCard({ pokemon }) {
     <>
       <Card
         title={pokemon.name}
-        cover={<img src={pokemon.url} alt={pokemon.name} />}
+        cover={<img src={pokemon.sprites.front_default} alt={pokemon.name} />}
         extra={<StarOutlined />}
       ></Card>
     </>
