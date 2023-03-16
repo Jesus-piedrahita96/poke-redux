@@ -1,0 +1,19 @@
+.app {
+  display: grid;
+  grid-template-rows: auto 2fr;
+  background-color: $color-base;
+  &__title {
+    width: 30%;
+    height: 10vh;
+    padding: 10px 0;
+    justify-self: center;
+    font-size: 1rem;
+  }
+  &__main {
+    display: grid;
+    grid-template-rows: auto 1fr 1fr;
+    place-items: center;
+    padding: 20px;
+    gap: 20px;
+  }
+}

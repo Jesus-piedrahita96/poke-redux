@@ -1,0 +1,23 @@
+.search {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  &__input {
+    width: 90%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    &:focus {
+      outline: none;
+    }
+  }
+  &__button {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: $color-button;
+    &:hover {
+      background-color: $color-button-hover;
+    }
+  }
+}

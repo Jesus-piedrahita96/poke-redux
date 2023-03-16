@@ -7,9 +7,9 @@ function PokemonFavorite() {
 
   return (
     <>
-      <div className='main'>
-        <h2 className='main__title'><strong>Favorites</strong></h2>
-        <div className='main__pokemons'>
+      <div className='card'>
+        <h2 className='card__title'><strong>Favorites</strong></h2>
+        <div className='card__pokemons'>
           {favorites.map((pokemon, index) => {
             return <PokemonCard key={index} pokemon={pokemon} />
           })}

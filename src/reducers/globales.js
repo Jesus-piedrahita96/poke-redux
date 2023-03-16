@@ -3,6 +3,7 @@ import { actionTypes } from "../actions/types"
 const initialState = {
   loader: false,
   confirm: true,
+  search: '',
 }
 
 const objectReducer = (state, payload) => ({
@@ -15,6 +16,10 @@ const objectReducer = (state, payload) => ({
     ...state,
     loader: false,
     confirm: true
+  },
+  [actionTypes.search]: {
+    ...state,
+    search: payload
   },
 })
 

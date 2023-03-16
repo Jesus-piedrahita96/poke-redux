@@ -1,25 +1,28 @@
 import React from 'react';
 import PokemonCard from './PokemonCard';
-import '../css/App.css'
 import { useSelector } from 'react-redux';
+import { useSearch } from '../hooks/useSearch';
 
-function PokemonList({pokemons}) {
+function PokemonList({ pokemons }) {
+  const search = useSelector(state => state.ui.search)
+  const list = useSearch(pokemons, search)
   const cargando = useSelector(state => state.ui.loader)
   const confirmado = useSelector(state => state.ui.confirm)
 
-  if(!cargando && confirmado) {
-    return(
+
+  if (!cargando && confirmado) {
+    return (
       <>
         <div className='contain-pokemons'><h2>Cargando ...</h2></div>
       </>
     )
-  }else {
+  } else {
     return (
       <>
-        <div className='main'>
-          <h2 className='main__title'><strong>Pokemons</strong></h2>
-          <div className='main__pokemons'>
-            {pokemons.map((pokemon, index) => {
+        <div className='card'>
+          <h2 className='card__title'><strong>Pokemons</strong></h2>
+          <div className='card__pokemons'>
+            {list.map((pokemon, index) => {
               return <PokemonCard key={index} pokemon={pokemon} />
             })}
           </div>

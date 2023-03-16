@@ -18,4 +18,9 @@ const setFavorite = (payload) => ({
   payload
 })
 
-export { setPokemons, setConfirm, setLoader, setFavorite }
+const setSearch = (payload) => ({
+  type: actionTypes.search,
+  payload
+})
+
+export { setPokemons, setConfirm, setLoader, setFavorite, setSearch }

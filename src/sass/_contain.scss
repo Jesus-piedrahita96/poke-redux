@@ -1,0 +1,20 @@
+.poke {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  place-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  background: #D7BDE2;
+  box-shadow:
+  20px 20px 60px #b7a1c0,
+  -20px -20px 60px #f7d9ff;
+  &__button {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: $color-button;
+    &:hover {
+      background-color: $color-button-hover;
+    }
+  }
+}
