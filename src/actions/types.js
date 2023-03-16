@@ -3,5 +3,6 @@ export const actionTypes = {
   loader: 'LOADER',
   confirm: 'CONFIRM',
   addFavorite: 'ADDFAVORITE',
+  deleteFavorite: 'DELETEFAVORITE',
   search: 'SEARCH',
 }

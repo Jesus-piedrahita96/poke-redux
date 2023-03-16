@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Col } from 'antd';
 //Hooks
 import useGetApi from './hooks/useGetApi';
 //Components

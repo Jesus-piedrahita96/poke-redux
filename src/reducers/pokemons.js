@@ -13,6 +13,10 @@ const objectReducer = (state, payload) => ({
   [actionTypes.addFavorite]: {
     ...state,
     favorites: [...state.favorites, payload]
+  },
+  [actionTypes.deleteFavorite]: {
+    ...state,
+    favorites: state.favorites.filter(data => data.id !== payload)
   }
 })
 
