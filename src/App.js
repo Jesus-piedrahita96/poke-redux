@@ -8,12 +8,13 @@ import Searcher from './components/Searcher';
 import PokemonsList from './components/PokemonList';
 //Css
 import './css/App.css';
+import PokemonFavorite from './components/PokemonFavorite';
 
 
 function App() {
   const API = 'https://pokeapi.co/api/v2/pokemon?limit=150';
   useGetApi(API)
-  const pokemons = useSelector(state => state.pokemons)
+  const pokemons = useSelector(state => state.data.pokemons)
 
   return (
     <div className="App">
@@ -22,6 +23,7 @@ function App() {
       <Col span={20} offset={2} >
         <Searcher />
         <PokemonsList pokemons={pokemons} />
+        <PokemonFavorite />
       </Col>
     </div>
   );

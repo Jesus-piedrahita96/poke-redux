@@ -1,18 +1,23 @@
 import { actionTypes } from "../actions/types"
 
 const initialState = {
-  pokemons: []
+  pokemons: [],
+  favorites: []
 }
 
 const objectReducer = (state, payload) => ({
   [actionTypes.setPokemons]: {
     ...state,
     pokemons: payload
+  },
+  [actionTypes.addFavorite]: {
+    ...state,
+    favorites: [...state.favorites, payload]
   }
 })
 
-function reducer(state= initialState, action) {
+function reducerPokemon(state= initialState, action) {
   return objectReducer(state, action.payload)[action.type] || state
 }
 
-export {reducer}
+export {reducerPokemon}

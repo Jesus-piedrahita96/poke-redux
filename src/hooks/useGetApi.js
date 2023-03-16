@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { setPokemons } from '../actions';
+import { setConfirm, setPokemons } from '../actions';
 
 function useGetApi(api) {
   const dispatch = useDispatch()
@@ -16,7 +16,10 @@ function useGetApi(api) {
           .finally(() => console.log('finalizando get-url'))
       ))
 
-      dispatch(setPokemons(pokemonDetail))
+      if(pokemonDetail != null) {
+        dispatch(setPokemons(pokemonDetail))
+        dispatch(setConfirm())
+      }
     }
 
     return obtenerDatos
